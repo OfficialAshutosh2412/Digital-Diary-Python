@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .background-img{
+                background-image:url('static/img/welcome-img.jpg');
+                background-repeat:no-repeat;
+                background-position:center;
+                background-attachment:fixed;
+                background-size:cover;
+            }
+
+        </style>
+    </head>
+    <body class="background-img">
+        {% block body %}
+            <form method='post' action='/users'>
+                <table cellspacing="0" class="user-home-main" cellpadding="0">
+                    <tr>
+                        <td>{% include('userheader.html') %}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tr >
+                                        <td class="user-welcome">WELCOME,<br>   {{session['un'].upper()}}
+                                            <p class="user-para" style="margin-bottom:0px">
+                                            NOW YOU ARE ELIGIBLE TO USE OUR SERVICES
+                                        </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>{% include('footer.html') %}</td>
+                    </tr>
+                </table>
+            </form>
+        {% endblock %}
+    </body>
+</html>

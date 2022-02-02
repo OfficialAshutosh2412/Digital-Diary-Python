@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contacts</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            ::placeholder {color: lightslategray;font-size:12pt;}
+            .tr_1:hover{
+            background:#85b9f7;
+            transition:all 0.4s}
+        </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/usercontact">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td>{% include('userheader.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0" style="padding-top:80px;">
+                            <tr  class="user-contact-show-table">
+                                <td>
+                                    <table   cellspacing="10" cellpadding="0" style="padding:130px;border-right:2px solid #4a4e53">
+                                        <tr>
+                                            <td style="font-size:52pt;font-weight:100;">SHOW YOUR CONTACTS</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:20pt;font-weight:100;">ENTER YOUR USERNAME</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name='r1' class="contact-us-box"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="submit" name="fi" value="SHOW" class="contact-us-send-btn" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table style="padding:100px;"  cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td>
+                                                <center>
+                                                    <table  cellspacing="5" cellpadding="10">
+
+                                                        <tr>
+                                                            <td><input type="text" placeholder="USERNAME" name="t1" class="contact-us-box" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="text" placeholder="CONTACT NAME" name="t2" class="contact-us-box" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><textarea placeholder="OFFICE ADDRESS" rows="8" class="contact-us-box" cols="40" name="t3"></textarea></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><textarea placeholder="HOME ADDRESS" class="contact-us-box"  name="t4"></textarea></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="text" placeholder="WHATSAPP NUMBER" class="contact-us-box" name="t5" maxlength="10"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="text" placeholder="CALLING NUMBER" name="t6" class="contact-us-box" maxlength="10"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><textarea rows="8" placeholder="DETAILS" cols="40" class="contact-us-box" name="t7"></textarea></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3"><input class="contact-us-send-btn" type="submit" name="s" value="save"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{m}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1"  width="100%" cellpadding="10"   cellspacing="0">
+                            <tr>
+                                <th>Contact Id</th>
+                                <th>Username</th>
+                                <th> Contact Person</th>
+                                <th>Office Address</th>
+                                <th>Home Address:-</th>
+                                <th>Calling no:-</th>
+                                <th>Whatsapp no:-</th>
+                                <th>Details:-</th>
+                            </tr>
+                            {% for j in ro %}
+                            <tr class="tr_1">
+                                <td>{{j[0]}}</td>
+                                <td>{{j[1]}}</td>
+                                <td>{{j[2]}}</td>
+                                <td>{{j[3]}}</td>
+                                <td>{{j[4]}}</td>
+                                <td>{{j[5]}}</td>
+                                <td>{{j[6]}}</td>
+                                <td>{{j[7]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% include('footer.html') %}
+                    </td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

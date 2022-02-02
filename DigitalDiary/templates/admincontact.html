@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Contact</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .tr_1:nth-child(even){
+                background:#36595b;
+                color:white;
+                }
+            th{
+                background:#e22d3f;
+                font-size:12pt;
+                position:sticky;top:135px;
+                }
+        </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/admincontacts">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>{% include('adminheader.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0"  style="margin-top:150px;padding:30px">
+                            <tr>
+                                <td class="admin-user-brand" style="font-size:70pt;">User Contacts</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0" style="padding:20px">
+                            <tr>
+                                <td>
+                                    <table  width="100%" cellpadding="0" cellspacing="0" class="shadow primary-btn" style="padding:20px">
+                                        <tr>
+                                            <td><center>
+                                                <table width="100%" cellpadding="10" cellspacing="0">
+                                                    <tr>
+                                                        <td class="admin-user-brand">Show contacts </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input class="admin-user-reg-box" placeholder="USERNAME" type="text" name="t1" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="submit" value="SHOW" name="sss" class="success-btn" style="width:310px"/></td>
+                                                    </tr>
+                                                </table></center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table width="50%" cellspacing="0" border="1" style="border:1px solid silver;margin-left:100px;" cellpadding="10" class="primary-btn shadow" >
+                                        <tr class="danger-btn">
+                                            <th>Contact Id</th>
+                                            <th>Username</th>
+                                            <th>Person name</th>
+                                            <th>Office address</th>
+                                            <th>Home address</th>
+                                            <th>Whatsapp no.</th>
+                                            <th>Calling no.</th>
+                                            <th>Details</th>
+                                        </tr>
+                                        {% for d in wr %}
+                                        <tr>
+                                            <td>{{d[0]}}</td>
+                                            <td>{{d[1]}}</td>
+                                            <td>{{d[2]}}</td>
+                                            <td>{{d[3]}}</td>
+                                            <td>{{d[4]}}</td>
+                                            <td>{{d[5]}}</td>
+                                            <td>{{d[6]}}</td>
+                                            <td>{{d[7]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table><br><br>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0"  cellpadding="0">
+                            <tr>
+                                <td class="primary-btn ">All Contacts</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%" border="1" cellpadding="10" cellspacing="0">
+                                        <tr class="tr_1" style="height:80px">
+                                            <th>Contact Id</th>
+                                            <th>Username</th>
+                                            <th>Contact person</th>
+                                            <th>Office address</th>
+                                            <th>Home address</th>
+                                            <th>Whatsapp no.</th>
+                                            <th>Calling no.</th>
+                                            <th>Details</th>
+                                        </tr>
+                                        {% for h in rg %}
+                                        <tr class="tr_1">
+                                            <td>{{h[0]}}</td>
+                                            <td>{{h[1]}}</td>
+                                            <td>{{h[2]}}</td>
+                                            <td>{{h[3]}}</td>
+                                            <td>{{h[4]}}</td>
+                                            <td>{{h[5]}}</td>
+                                            <td>{{h[6]}}</td>
+                                            <td>{{h[7]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </td>
+                            </tr>
+                        </table><hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('adminfooter.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

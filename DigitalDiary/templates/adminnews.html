@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin news</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .tr_1:nth-child(even){
+                background:#36595b;
+                color:white;
+                }
+            th{
+                background:#e22d3f;
+                font-size:12pt;
+                position:sticky;top:135px;
+                }
+        </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/adminnews">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>{% include('adminheader.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:200px">
+                            <tr>
+                                <td>
+                                    <table width="100%" cellspacing="0" cellpadding="0" style="padding:30px">
+                                        <tr>
+                                            <td class="admin-user-brand">NEWS Feed</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tagline" style="text-align:left">
+                                                news feed section, admin notify user from here and only accessible by administrator !
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td><center>
+                                    <table  cellspacing="10" cellpadding="0" class="skyblue" style="padding:50px;margin:50px">
+                                        <tr>
+                                            <td><input type="text" placeholder="TITLE" class="admin-user-reg-box" style="border:none;" name="t1" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="t2" style="border:none;" placeholder="DESCRIPTION"  class="admin-user-reg-box"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="date" name="t3"  style="border:none;" class="admin-user-reg-box"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="time" name="t4" style="border:none;" class="admin-user-reg-box"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="submit" value="save" name="sv" class="success-btn"/>
+                                                <input type="submit" value="delete" name="del" class="danger-btn"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{m}}</td>
+                                        </tr>
+                                    </table></center>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellpadding="10" cellspacing="" border="1">
+                            <tr class="tr_1" style="height:80px">
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            {% for v in rt %}
+                            <tr class="tr_1">
+                                <td>{{v[0]}}</td>
+                                <td>{{v[1]}}</td>
+                                <td>{{v[2]}}</td>
+                                <td>{{v[3]}}</td>
+                                <td>{{v[4]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('adminfooter.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

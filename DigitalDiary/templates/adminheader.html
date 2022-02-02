@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/blue_icon.ico')}}"/>
+        <style>
+            html,body{height:100%;margin:0px;width:100%;}
+            .admin-head-link{
+                text-decoration:none;
+                color:white;
+                }
+            .admin-header-link{
+               background-color:#1c1c1c;
+               height:35px;
+               text-align:center;
+               font-size:13pt;
+               padding:50px;
+                }
+            .admin-header-link:hover{
+                background:#03b6a5;
+                transition:0.6s;
+                color:black;
+                }
+            .admin-head-main{
+                position:fixed;
+                box-shadow:10px 10px 34px 3px rgba(0,0,0,1);
+               -webkit-box-shadow: 10px 10px 34px 3px rgba(0,0,0,1);
+               -moz-box-shadow: 10px 10px 34px 3px rgba(0,0,0,1);
+                font-family:segoe ui;
+                width:100%;
+                }
+        </style>
+    </head>
+    <body>
+        <form>
+            <table  class="admin-head-main" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="admin-header-link"><a href="{{url_for('ad')}}" class="admin-head-link">Home</a></td>
+                                <td class="admin-header-link"><a href="{{url_for('adus')}}" class="admin-head-link">Users</a></td>
+                                <td class="admin-header-link"><a href="{{url_for('cnus')}}" class="admin-head-link">Contact Us</a></td>
+                                <td class="admin-header-link"><a href="{{url_for('adcons')}}" class="admin-head-link">Usercontacts</a></td>
+                                <td class="admin-header-link"><a href="{{url_for('adnt')}}" class="admin-head-link">Notes</a></td>
+                                <td class="admin-header-link"><a href="{{url_for('adns')}}" class="admin-head-link">News</a></td>
+                                <td class="admin-header-link" ><a href="{{url_for('adjk')}}" class="admin-head-link">Jokes</a></td>
+                                <td class="admin-header-link"><a href="{{url_for('afd')}}" class="admin-head-link">Feedback</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

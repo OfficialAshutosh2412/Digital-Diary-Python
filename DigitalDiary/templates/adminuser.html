@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Users</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/adminusers">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>{% include('adminheader.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <table cellspacing="0" cellpadding="0" width="100%" class="admin-user-tab-1">
+                                <tr>
+                                    <td>
+                                        <table cellpadding="0" cellspacing="0" width="100%" border="1"
+                                               class="admin-user-borders">
+                                            <tr>
+                                                <th class="admin-user-brand">Users</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="tagline">all registered users is here!</p>
+                                                </td>
+                                            </tr>
+                                            {% for n in rk %}
+                                            <tr class="admin-reg-users">
+                                                <td>
+                                                    <label>
+                                                    {{n[0].upper()}}
+                                                </label></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <table  cellpadding="5" cellspacing="0" class="shadow danger-btn" style="padding:40px" >
+                                                <tr >
+                                                    <td class="admin-user-brand">
+                                                        See Details
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td  style="color:white;text-align:center;">
+                                                        <select name="t1" class="admin-user-reg-box">
+                                                            <option>SELECT USERNAME</option>
+                                                            {% for n in rk %}
+                                                            <option>
+                                                                {{n[0]}}
+                                                            </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="submit" name="so" value="SHOW" class="primary-btn admin-btn" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td><center>
+                        <table  cellspacing="0" cellpadding="15" class="shadow danger-btn" style="border-radius:20px;padding:20px;">
+                            {% for b in fm %}
+                            <tr>
+                                <td style="border-right:2px solid #817f7f">Username</td>
+                                <td style="border-right:2px solid #817f7f">Password</td>
+                                <td style="border-right:2px solid #817f7f">Confirm Password</td>
+                                <td style="border-right:2px solid #817f7f">Gender</td>
+                                <td style="border-right:2px solid #817f7f">E-mail</td>
+                                <td style="border-right:2px solid #817f7f">Pincode</td>
+                                <td style="border-right:2px solid #817f7f">Marriage status</td>
+                                <td style="border-right:2px solid #817f7f">Living status</td>
+                                <td style="border-right:2px solid #817f7f">Date of birth</td>
+                                <td style="border-right:2px solid #817f7f">Timeline</td>
+                                <td style="border-right:2px solid #817f7f">Address</td>
+                            </tr>
+                            <tr>
+                                <td style="border-right:2px solid #817f7f">{{b[0]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[1]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[2]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[3]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[4]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[5]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[6]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[7]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[8]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[9]}}</td>
+                                <td style="border-right:2px solid #817f7f">{{b[10]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table></center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('adminfooter.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

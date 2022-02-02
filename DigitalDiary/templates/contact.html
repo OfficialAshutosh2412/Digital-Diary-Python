@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact Us</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            ::placeholder {color: lightslategray;font-size:12pt;}
+
+        </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/cont">
+            <table class="contact-us-main" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="background-image:url('static/img/contact_us.jpg');
+                                background-attachment:fixed;background-position:center">
+                        {% include('header.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="contact-us-tab-1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="contact-us-para">
+                                    <label class="contact-us-head">
+                                        Contact Us<br>
+                                    </label>
+                                    Got a question?We'd love to hear from you.
+                                    Send us a message<br>and we'll respond you as soon as possible.
+                                </td>
+                                <td>
+                                    <center>
+                                        <table cellspacing="20" cellpadding="5" >
+                                            <tr>
+                                                <td ><input type="text" placeholder="NAME*" name="t1" class="contact-us-box"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" placeholder="CONTACT*" name="t2" class="contact-us-box" maxlength="10"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="email" placeholder="E-MAIL*" name="t3" class="contact-us-box"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><textarea name="t4" placeholder="MESSAGE" rows="10" cols="47" class="contact-us-textarea"></textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="submit" value="SEND" name="send-message" class="contact-us-send-btn"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{m}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('footer.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

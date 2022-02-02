@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <title>Title</title>
+        <style>
+            html,body{margin:0px;width:100%;padding:0}
+            #two
+             {
+                 background:#0009;
+                 height:10px;
+                 font-size:17px;
+                 text-align:center;
+                 padding:3px;
+                 width:200px;
+                 font-family:segoe ui;
+             }
+             a{color:white; text-decoration:none;}
+             .one
+             {
+                background:#0009;
+                height:140px;
+                font-weight:bolder;
+                font-size:52pt;
+                color:pink;
+                text-align:left;
+                width:900px;
+             }
+
+        </style>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" cellpadding="0" >
+            <tr>
+                <td>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr style="height:665px">
+                            <td class="one" style="padding:10px">
+                                <a href="{{url_for('hom')}}">
+                                    <img src="{{url_for('static',filename='img/branding.png')}} " />
+                                </a>
+                            </td>
+                            <td id="two">
+                                <a href="{{url_for('hom')}}">
+                                    <img  src="{{url_for('static',filename='icons/mainhome.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">HOME</p>
+                                </a>
+                            </td>
+                            <td id="two">
+                                <a href="{{url_for('ab')}}">
+                                    <img  src="{{url_for('static',filename='icons/about.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">ABOUT</p>
+                                </a>
+                            </td>
+                            <td id="two">
+                                <a href="{{url_for('conts')}}">
+                                    <img  src="{{url_for('static',filename='icons/contact-us.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">CONTACT US</p>
+                                </a>
+                            </td>
+                            <td id="two">
+                                <a href="{{url_for('reg')}}">
+                                    <img  src="{{url_for('static',filename='icons/signup.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">SIGNUP</p>
+                                </a>
+                            </td>
+                            <td id="two">
+                                <a href="{{url_for('log')}}">
+                                    <img  src="{{url_for('static',filename='icons/login.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">LOGIN</p>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

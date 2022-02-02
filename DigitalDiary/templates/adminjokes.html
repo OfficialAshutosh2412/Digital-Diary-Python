@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Jokes</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .tr_1:nth-child(even){
+                background:#36595b;
+                color:white;
+                }
+            th{
+                background:#e22d3f;
+                font-size:12pt;
+                position:sticky;top:135px;
+                }
+        </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/adminjokes">
+            <table width="100%" cellpadding="0" cellspacing="0" >
+                <tr>
+                    <td>{% include('adminheader.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                            <table width="100%" cellspacing="0" cellpadding="0"   style="margin-top:150px;padding:30px">
+                            <tr>
+                                <td class="admin-user-brand" style="font-size:70pt;">JOKES </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="10" cellpadding="0" style="padding:20px">
+                            <tr>
+                                <td>
+                                    <table width="100%" cellspacing="0" border="1" style="border:1px solid silver;margin-left:5px;" cellpadding="10" class="primary-btn shadow" >
+                                        <tr  class="danger-btn" >
+                                            <th>Joke Id</th>
+                                            <th>Username</th>
+                                            <th>Joke refered by</th>
+                                            <th>Joke</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                        </tr>
+                                        {% for o in yn %}
+                                        <tr>
+                                            <td>{{o[0]}}</td>
+                                            <td>{{o[1]}}</td>
+                                            <td>{{o[2]}}</td>
+                                            <td>{{o[3]}}</td>
+                                            <td>{{o[4]}}</td>
+                                            <td>{{o[5]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </td>
+                                <td>
+                                    <table  cellpadding="5" cellspacing="10" class="shadow primary-btn" style="padding:20px">
+                                        <tr>
+                                            <td class="admin-user-brand">Show jokes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="admin-user-reg-box" placeholder="USERNAME" name="m1" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="submit" value="show" name="soo" class="success-btn" style="width:310px"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                             </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0"  cellpadding="0">
+                            <tr>
+                                <td class="primary-btn ">All Jokes</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%" border="1" cellpadding="10" cellspacing="0" >
+                                        <tr  class="tr_1" style="height:80px">
+                                            <th>Joke Id</th>
+                                            <th>Username</th>
+                                            <th>Joke refered by</th>
+                                            <th>Joke</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                        </tr>
+                                        {% for u in ur %}
+                                        <tr class="tr_1">
+                                            <td>{{u[0]}}</td>
+                                            <td>{{u[1]}}</td>
+                                            <td>{{u[2]}}</td>
+                                            <td>{{u[3]}}</td>
+                                            <td>{{u[4]}}</td>
+                                            <td>{{u[5]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('adminfooter.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

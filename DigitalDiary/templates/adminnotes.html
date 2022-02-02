@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Notes</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .tr_1:nth-child(even){
+                background:#36595b;
+                }
+            th{
+                background:#00bd5b;
+                font-size:12pt;
+                position:sticky;top:135px;
+                }
+
+        </style>
+    </head>
+    <body>
+    {% block body %}
+    <form method="post" action="/adminnotes">
+        <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>{% include('adminheader.html') %}</td>
+            </tr>
+            <tr>
+                <td>
+                    <table cellspacing="0"  width="100%" cellpadding="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellspacing="0" cellpadding="0"  style="margin-top:150px;padding:30px">
+                                    <tr>
+                                        <td class="admin-user-brand">Notes</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" style="padding:20px">
+                                    <tr>
+                                        <td>
+                                            <table width="70%" cellpadding="0" cellspacing="10" class="shadow success-btn" style="padding:20px">
+                                                <tr>
+                                                    <td class="admin-user-brand">
+                                                        Show Notes
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input class="admin-user-reg-box" placeholder="USERNAME" type="text" name="q1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="submit" name="s10" value="SHOW" class="dark-green" style="width:310px" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table width="100%" cellspacing="0" border="1" style="border:1px solid silver;" cellpadding="10" class="success-btn shadow">
+                                                <tr>
+                                                    <th>Note Id</th>
+                                                    <th>Username</th>
+                                                    <th>Title</th>
+                                                    <th>Description</th>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                </tr>
+                                                {% for c in rl %}
+                                                <tr>
+                                                    <td>{{c[0]}}</td>
+                                                    <td>{{c[1]}}</td>
+                                                    <td>{{c[2]}}</td>
+                                                    <td>{{c[3]}}</td>
+                                                    <td>{{c[4]}}</td>
+                                                    <td>{{c[5]}}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class="primary-btn ">All Notes:-</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" border="1" cellpadding="5" cellspacing="0" style=" border-color:#0003;">
+                                    <tr style="height:80px" class="tr_1">
+                                        <th>Note Id</th>
+                                        <th>Username</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                    </tr>
+                                    {% for h in cr %}
+                                    <tr class="tr_1">
+                                        <td>{{h[0]}}</td>
+                                        <td>{{h[1]}}</td>
+                                        <td>{{h[2]}}</td>
+                                        <td>{{h[3]}}</td>
+                                        <td>{{h[4]}}</td>
+                                        <td>{{h[5]}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table><hr/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>{% include('adminfooter.html') %}</td>
+            </tr>
+        </table>
+    </form>
+    {% endblock %}
+    </body>
+</html>

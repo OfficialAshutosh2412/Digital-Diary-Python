@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Notes</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+           ::placeholder {color: lightslategray;font-size:12pt;}
+            .tr_1:hover{
+                background:#e26262;
+                color:white;
+                transition:all 0.4s
+                }
+        </style>
+    </head>
+    <body>
+        {% block body %}
+            <form method="post" action="/notes">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>{% include('userheader.html') %}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="100%" cellpadding="20" cellspacing="10" class="notes-show">
+                                <tr>
+                                    <td style="border-right:1px solid brown;">SEE YOUR NOTES</td>
+                                    <td>
+                                        <input type="text" name="e1" placeholder="ENTER YOUR USERNAME" class="contact-us-box"/>
+                                        <input type="submit" name="s" value="SHOW" style="width:100px;border-radius:7px;" class="contact-us-send-btn"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="100%" cellpadding="0" class="notes-backgrnd" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <table width="100%"  cellpadding="0" cellspacing="10">
+                                                <tr>
+                                                    <td><input type="text" placeholder="NOTE ID (create yourself)" name="t1" class="contact-us-box"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" placeholder="USERNAME" name="t2" class="contact-us-box"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" placeholder="TITLE" name="t3" class="contact-us-box"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><textarea rows="15" placeholder="DESCRIPTION" cols="40" class="contact-us-box" name="t4" ></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="date" placeholder="DATE"  name="t5" class="contact-us-box"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="time" placeholder="TIME"  name="t6" class="contact-us-box"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="submit" value="SAVE" name="save" class="contact-us-send-btn"/></td>
+                                                </tr>
+                                            </table>
+                                        </center>
+                                    </td>
+                                    <td>
+                                       <table width="100%" cellspacing="0" cellpadding="0">
+                                           <tr>
+                                               <td class="contact-us-head notes-sub-brand">
+                                                   ADD NOTES !
+                                                   <p style="font-size:22pt;color:white">
+                                                       SAVE YOUR NOTES FOREVER OR TEMPERORY
+                                                   </p>
+                                               </td>
+                                           </tr>
+                                       </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    <tr>
+                        <td>
+                            <table border="1"  width="100%"  cellspacing="0" cellpadding="10">
+                                <tr>
+                                    <th><b>Note Id</b></th>
+                                    <th><b>Username</b></th>
+                                    <th><b>Title</b></th>
+                                    <th><b>Description</b></th>
+                                    <th><b>Date</b></th>
+                                    <th><b>Time</b></th>
+                                </tr>
+                                {% for q in awm %}
+                                <tr class="tr_1">
+                                    <td>{{q[0]}}</td>
+                                    <td>{{q[1]}}</td>
+                                    <td>{{q[2]}}</td>
+                                    <td>{{q[3]}}</td>
+                                    <td>{{q[4]}}</td>
+                                    <td>{{q[5]}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{% include('footer.html') %}</td>
+                    </tr>
+                </form>
+            {% endblock %}
+        </body>
+</html>

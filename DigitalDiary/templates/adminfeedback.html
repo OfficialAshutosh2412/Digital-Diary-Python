@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Feedback</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .tr_1:nth-child(even){
+                background:#36595b;
+                color:white;
+                }
+            th{
+                background:#e22d3f;
+                font-size:12pt;
+                position:sticky;top:135px;
+                }
+
+         </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/adminfeedback">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>{% include('adminheader.html') %}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table  width="100%" cellpadding="0" cellspacing="0" style="margin-top:200px">
+                            <tr>
+                                <td>
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="padding:30px">
+                                        <tr>
+                                            <td class="admin-user-brand">
+                                                Feedback Panel
+                                            </td>
+                                        </tr>
+                                        <tr class="tagline" style="text-align:left">
+                                            <td>All the user' feedback are shown here, and replies given to the users also see here!</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table cellspacing="10" cellpadding="0" class="skyblue" style="padding:50px;margin:50px">
+                                        <tr>
+                                            <td  ><select name="l1" class="admin-user-reg-box">
+                                                <option>--select--</option>
+                                                {% for t in yr %}
+                                                <option>{{t[0]}}</option>
+                                                {% endfor %}
+                                            </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><select name="l3"  class="admin-user-reg-box">
+                                                <option>--select--</option>
+                                                {% for t in yr %}
+                                                <option>{{t[2]}}</option>
+                                                {% endfor %}
+                                            </select></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><input name="l2" placeholder="REPLY" class="admin-user-reg-box" style="width:285px"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="submit" value="save" name="send" class="success-btn" />
+                                                <input type="submit" value="delete" name="del" class="danger-btn"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                 <td style="text-align:center;font-size:34pt;padding:50px;">All Feedbacks.</td>
+                            </tr>
+                             <tr>
+                                 <td>
+                                     <table width="100%" cellspacing="0" border="1" cellpadding="10">
+                                         <tr style="background-color: rgb(2, 27, 19);color:white;border-color:white;" class="tr_1">
+                                             <th>Feedback Id</th>
+                                             <th>Subject</th>
+                                             <th>Username</th>
+                                             <th>Contact</th>
+                                             <th>Details</th>
+                                         </tr>
+                                        {% for y in yr %}
+                                        <tr class="tr_1">
+                                            <td>{{y[0]}}</td>
+                                            <td>{{y[1]}}</td>
+                                            <td>{{y[2]}}</td>
+                                            <td>{{y[3]}}</td>
+                                            <td>{{y[4]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                     </table><br><hr/>
+                                </td>
+                             </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('adminfooter.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

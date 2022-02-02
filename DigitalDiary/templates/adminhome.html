@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Home</title>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+    </head>
+    <body>
+        {% block body %}
+            <form method="post" action="/ashutoshprasad24720002000">
+                <table  cellspacing="0"  cellpadding="0" width="100%">
+                    <tr>
+                        <td style="background:#00c7c1;padding:0px">
+                            <img src="{{url_for('static',filename='img/adminimg.png')}}" height="50"/>
+                            <label style="font-weight:100;font-size:20pt;">ADMIN DASHBOARD</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table cellpadding="30" width="100%"   cellspacing="40" style="padding:40px;">
+                                <tr>
+                                    <td class="background-pad shadow ">
+                                        <p class="count">
+                                            {{countUser}}
+                                        </p>
+                                        <a class="success-btn" href="{{url_for('adus')}}">
+                                             SEE ALL USERS
+                                        </a>
+                                    </td>
+                                    <td class="background-pad shadow">
+                                        <p class="count">
+                                            {{msgCount}}
+                                        </p>
+                                        <a class="danger-btn" href="{{url_for('cnus')}}">
+                                            SEE ALL MESSAGE
+                                        </a>
+                                    </td>
+                                    <td class="background-pad shadow">
+                                        <p class="count">
+                                            {{contactCount}}
+                                        </p>
+                                        <a class="waiting-btn" href="{{url_for('adcons')}}">
+                                            SEE ALL CONTACTS
+                                        </a>
+                                    </td>
+                                    <td class="background-pad shadow">
+                                        <p class="count">
+                                            {{notesCount}}
+                                        </p>
+                                        <a class="primary-btn" href="{{url_for('adnt')}}">
+                                            SEE ALL NOTES
+                                        </a>
+                                    </td>
+                                    <td class="background-pad shadow">
+                                        <p class="tagline">
+                                            {{newsCount}} NEWS UPDATES DELIVERED...
+                                        </p>
+                                        <a class="primary-btn " href="{{url_for('adns')}}">
+                                            SEE ALL NEWS
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="background-pad shadow">
+                                        <p class="tagline">
+                                            SAVED JOKES....<br>SAVE, EDIT, DELETE..CLICK HERE
+                                        <a  class="waiting-btn"  href="{{url_for('adjk')}}">
+                                            SEE ALL JOKES
+                                        </a>
+                                        </p>
+                                    </td>
+                                    <td class="background-pad shadow">
+                                        <a class="danger-btn " href="{{url_for('afd')}}">
+                                            <img  src="{{url_for('static',filename='icons/feed.png')}}" height="30" width="30"/>FEEDBACK
+                                        </a>
+                                    </td>
+                                    <td class="background-pad shadow">
+                                        <a class="success-btn" href="http://127.0.0.1:5000/">
+                                            <img  src="{{url_for('static',filename='icons/site.png')}}" height="30" width="30"/>Go To Site
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        {% endblock %}
+    </body>
+</html>

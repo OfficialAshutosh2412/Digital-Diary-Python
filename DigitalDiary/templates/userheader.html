@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/blue_icon.ico')}}"/>
+        <style>
+            html,body{height:100%;margin:0px;width:100%;}
+            .user-header-main{
+                font-family:segoe ui;
+                position:fixed;
+                margin-top:-10px;
+                width:100%;
+                }
+            .user-head-bg
+             {
+                background-color:#212121;
+                 font-size:17px;
+                 text-align:center;
+                 width:200px;
+                 color:white;
+             }
+             .user-head-bg:hover{background-color:#079CA9;color:white;transition:0.6s;}
+             .user-brand
+             {
+                height:10px;
+                text-align:center;
+                font-weight:bolder;
+                font-size:10pt;
+                color: White;
+                background-color:#212121;
+                width:700px;
+                text-align:left;
+                font-family:segoe ui;
+             }
+             .user-header-link{
+                text-decoration:none;
+                color:rgb(206, 205, 200);
+                font-family:segoe ui;
+                transition:all 0.6s;
+                }
+             .user-header-link:hover{color:white;}
+             #bod
+            {
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+                background-position:center;
+                background-size:cover;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <table  cellspacing="0" class="user-header-main" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0" >
+                            <tr >
+                                <td style="padding:20px;" class="user-brand">
+                                    <a href="{{url_for('hom')}}" class="user-header-link">
+                                        <img src="{{url_for('static',filename='img/branding.png')}} " height='70px' width='140px'/>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('homeuser')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/mainhome.png')}}" height="30" width="30"/>
+                                        <p style="font-size:8pt">HOME</p>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('prof')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/user-profile.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">PROFILE</p>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('ucon')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/contacts.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">MY CONTACTS</p>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('nt')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/note.png')}}" height="25" width="25"/>
+                                    <p style="font-size:8pt">NOTES</p>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('jks')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/joke.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">JOKE</p>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('feed')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/feed.png')}}" height="30" width="30"/>
+                                    <p style="font-size:8pt">FEEDBACK</p>
+                                    </a>
+                                </td>
+                                <td class="user-head-bg">
+                                    <a href="{{url_for('log')}}" class="user-header-link">
+                                        <img  src="{{url_for('static',filename='icons/signout.png')}}" height="25" width="25"/>
+                                    <p style="font-size:8pt">LOGOUT</p>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

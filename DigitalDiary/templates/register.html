@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registeration</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/register" enctype="multipart/form-data">
+            <table width="100%"  cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="background-image:url('static/img/register.jpg');
+                                background-attachment:fixed;">
+                        {% include('header.html') %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="register-brand">REGISTRATIONS</td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <table cellspacing="0" style="padding:10px;" cellpadding="15" >
+                                <tr>
+                                    <td class="register-text">USERNAME</td>
+                                    <td ><input type="text" name="t1" class="register-box" /></td>
+                                    <td class="register-text">PASSWORD</td>
+                                    <td ><input type="password" name="t2" class="register-box" maxlength="12"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="register-text">CONFIRM_PASSWORD</td>
+                                    <td ><input type="password" name="t3" class="register-box" maxlength="12"/></td>
+                                    <td class="register-text">GENDER</td>
+                                    <td>
+                                        <select name="t4" class="register-selekt">
+                                            <option>male</option>
+                                            <option>female</option>
+                                            <option>transgender</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="register-text">E-MAIL</td>
+                                    <td><input type="email" name="t5" class="register-box"></td>
+                                    <td class="register-text">PINCODE</td>
+                                    <td><input type="text" maxlength="6" class="register-box" name="t6"></td>
+                                </tr>
+                                <tr>
+                                    <td class="register-text">M.STATUS</td>
+                                    <td><select name="t7" class="register-selekt" >
+                                        <option>--select--</option>
+                                        <option>married</option>
+                                        <option>unmaried</option>
+                                        <option>divorced</option>
+                                        <option>widower</option>
+                                    </select></td>
+                                    <td class="register-text">L .STATUS</td>
+                                    <td><select name="t8" class="register-selekt">
+                                        <option>--select--</option>
+                                        <option>high class</option>
+                                        <option>middle class</option>
+                                        <option>lower class</option>
+                                        <option>upper middle class</option>
+                                        <option>upper lower class</option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td class="register-text">DOB</td>
+                                    <td><input type="date" name="t9" class="register-box" ></td>
+                                    <td class="register-text">TIME-LINE</td>
+                                    <td><input type="time" name="t10" class="register-box"></td>
+                                </tr>
+                                <tr>
+                                    <td class="register-text">ADDRESS</td>
+                                    <td><textarea rows=8 cols=84 name="t11" class="register-box"></textarea></td>
+                                    <td class="register-text">PROFILE_PICTURE</td>
+                                    <td>
+                                        <input type="file" class="register-file_input" name="file_data"/>
+                                        <p style="color:grey">
+                                            image size should be 200 X 200
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <table  cellpadding="0" cellspacing="0" style="text-align:center;padding:10px;">
+                                <tr>
+                                    <td>
+                                        <input type="submit" multiple name="reg" class="register-btn" value="register" />
+                                        <button class="register-link-btn" >
+                                            <a href="{{url_for('log')}}" >
+                                            Already have an Account
+                                        </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('footer.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>

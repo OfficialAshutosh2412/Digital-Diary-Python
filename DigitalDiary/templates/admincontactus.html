@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Contact us</title>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/adminCSS.css')}}"/>
+        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <style>
+            .tr_1:nth-child(even){
+                background:Moccasin;
+                }
+            th{
+                background:#3ec658;
+                font-size:15pt;
+                position:sticky;top:130px;
+                }
+        </style>
+    </head>
+    <body>
+    {% block body %}
+        <form method="post" action="/admincontus">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>{% include('adminheader.html') %}</td>
+                </tr>
+                <tr >
+                    <td style="height:500px;font-size:72pt" class="admin-user-brand">All Messages...</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="1" cellspacing="0"  cellpadding="25" >
+                            <tr class=" success-btn" >
+                                <th >Username</th>
+                                <th >Contact no</th>
+                                <th >Email</th>
+                                <th >Message</th>
+                            </tr>
+                            {% for t in tor %}
+                            <tr>
+                                <td>{{t[0]}}</td>
+                                <td>{{t[1]}}</td>
+                                <td>{{t[2]}}</td>
+                                <td>{{t[3]}}</td>
+                            </tr>
+                             {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% include('adminfooter.html') %}</td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+    </body>
+</html>
