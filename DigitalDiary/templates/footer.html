@@ -3,84 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <title>footer</title>
-        <style>
-        </style>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
     </head>
-    <style>
-        a{text-decoration:none}
-    </style>
     <body>
-        <table width="100%"  cellpadding="0"  cellspacing="0"  style="background:#300011">
-            <tr>
-                <td>
-                    <table cellspacing="0" cellpadding="0"  width="100%">
-                        <tr>
-                            <td style="padding-right:200px">
-                                <a href="{{url_for('hom')}}">
-                                    <img src="{{url_for('static',filename='img/branding.png')}} " height="80" width="160" />
-                                </a>
-                            </td>
-                            <td>
-                                <a href="https://wa.me/16386239194" style="color:#bdb5b8;">
-                                    <img src="{{url_for('static',filename='icons/whatsapp.png')}}"  height="20px"/> (+91 6386239194)
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" style="color:#bdb5b8;">
-                                    <img src="{{url_for('static',filename='icons/phone.png')}}"  height="20px"/> (+91 6386239194)
-                                </a>
-                            </td>
-                            <td>
-                                <a href="https://wa.me/16386239194"style="color:#bdb5b8;">
-                                    <img src="{{url_for('static',filename='icons/gmail.png')}}"  height="20px"/> (ashutoshprasad2427@gmail.com)
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#bdb5b8;padding:50px;text-align:center" >
-                    FOLLOW US
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <center>
-                        <table  cellspacing="20"  cellpadding="0">
-                            <tr>
-                                <td>
-                                    <a href="https://www.linkedin.com/in/ashutosh-prasad-02a7b4169">
-                                        <img src="{{url_for('static',filename='icons/linkedin.png')}}" height="30px" />
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="https://www.instagram.com/ashutosh_as_2412/">
-                                        <img src="{{url_for('static',filename='icons/instagram.png')}}" height="30px"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="https://www.youtube.com/channel/UCDSOOSUOOnT0S3vfXB1IHtA?view_as=subscriber">
-                                        <img src="{{url_for('static',filename='icons/youtube.png')}}"  height="30px"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="https://www.facebook.com/ashutosh.prasad.754365">
-                                        <img src="{{url_for('static',filename='icons/facebook.png')}}" height="30px"/>
-                                    </a>
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
-                        </table>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#bdb5b8;text-align:center;padding:20px">
-                    Copyright 2021 &copy; Digital Diary Inc. All rights are reserverd.
-                </td>
-            </tr>
-        </table>
+        <footer class="footer">
+            <div class="quick-links">
+                <div>+91-1140872633(give a missed call)</div>
+                <div>+91-1140987645(whatsapp us)</div>
+                <div>ashutoshprasad2427@gmail.com</div>
+            </div>
+            <img src="{{url_for('static',filename='img/branding.png')}} " height="80" width="160" class="footer-img"/>
+            <h2>follow us</h2>
+            <div class="follow">
+                <a href="https://www.linkedin.com/in/ashutosh-prasad-02a7b4169">
+                    <img src="{{url_for('static',filename='icons/linkedin.png')}}" height="30px" />
+                </a>
+                <a href="https://www.instagram.com/ashutosh_as_2412/">
+                    <img src="{{url_for('static',filename='icons/instagram.png')}}" height="30px"/>
+                </a>
+                <a href="https://www.youtube.com/channel/UCDSOOSUOOnT0S3vfXB1IHtA?view_as=subscriber">
+                    <img src="{{url_for('static',filename='icons/youtube.png')}}"  height="30px"/>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>Copyright 2021 &copy; Digital Diary Inc. All rights are reserverd.</p>
+            </div>
+        </footer>
+
     </body>
 </html>

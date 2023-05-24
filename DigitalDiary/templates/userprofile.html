@@ -9,124 +9,31 @@
     <body>
         {% block body %}
             <form method="post" action="/profile">
-                <table width="100%" cellspacing="0" cellpadding="0" class="userprofile-main-bg">
-                    <tr>
-                        <td>{% include('userheader.html') %}</td>
-                    </tr>
-                    <tr>
-                        <td><center>
-                            <table  cellpadding="0" cellspacing="0"  class="userprofile-sub-bg">
-                                <tr>
-                                    <td>
-                                        <table   cellspacing="0" cellpadding="0" class="userprofile-img">
-                                            <tr>
-                                                <td>
-                                                    {% for h in d %}
-                                                        <img src="static/upload_images/{{h[11]}}" class="userprofile-round">
-                                                    {% endfor %}
+                <div>{% include('userheader.html') %}</div>
+                <div class="profile">
+                    <div class="pro-img">
+                        {% for h in d %}
+                            <img src="static/upload_images/{{h[11]}}" class="userprofile-round">
+                        {% endfor %}
+                    </div>
+                    <div class="pro-details">
+                        <div>
+                            <h1>{{session['un'].upper()}}</h1>
+                            {% for i in d %}
+                            <label>{{i[0]}}</label>
+                            <label>{{i[8]}}</label>
+                            <label>{{i[3]}}</label>
+                            <label>{{i[5]}}</label>
+                            <label>{{i[7]}}</label>
+                            <label>{{i[4]}}</label>
+                            <label>{{i[9]}}}</label>
+                            <label>{{i[10]}}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div>{% include('userfooter.html') %}</div>
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-size:20pt;color:#ddd5d5">
-                                                    {{session['un'].upper()}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <table  width="100%"  cellspacing="30" cellpadding="0" style="display:flex;text-align:left">
-                                                        {% for i in d %}
-                                                        <tr>
-                                                            <td>
-                                                                <table cellspacing="0" cellpadding="10">
-
-                                                                    <tr>
-                                                                        <td>
-                                                                            <img src="{{url_for('static', filename = 'icons/user.png')}}" height="30px" width="30px"/>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[0]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <img src="{{url_for('static', filename = 'icons/signup.png')}}" height="20px" width="20px"/>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[8]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <img src="{{url_for('static', filename = 'icons/gender.png')}}" height="30px" width="30px"/>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[3]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td>
-                                                                            <img src="{{url_for('static', filename = 'icons/pincode.png')}}" height="20px" width="20px"/>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[5]}}
-                                                                            </span>
-                                                                        </td>
-
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                            <td>
-                                                                <table cellpadding="10" cellspacing="0" style="border-left:1px solid white">
-                                                                    <tr>
-                                                                        <td>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[7]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <img src="{{url_for('static', filename = 'icons/gmail-2.png')}}" height="20px" width="20px"/>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[4]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <span>
-                                                                                <img src="{{url_for('static', filename = 'icons/clock.png')}}" height="20px" width="20px"/>
-                                                                            </span>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[9]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <span class="userprofile-info">
-                                                                                {{i[10]}}
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table></center>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{% include('footer.html') %}</td>
-                    </tr>
-                </table>
             </form>
         {% endblock %}
     </body>

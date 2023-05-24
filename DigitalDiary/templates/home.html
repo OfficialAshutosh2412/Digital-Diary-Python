@@ -1,270 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Home</title>
-        <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
-        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
-        <style>
-            h1{
-               font-family:segoe ui;
-               font-weight: lighter;
-               color:black;
-               }
-        </style>
-    </head>
-    <body >
-        {% block body %}
-            <form method="post" action="/home">
-<!--========================== header section ===============================================================-->
-                <table width="100%"  cellspacing="0" cellpadding="0">
-                    <tr style="height:auto">
-                        <td style="background-image:url({{url_for('static', filename = 'img/homey.jpg')}});
-                                   background-repeat:no-repeat;background-attachment:fixed;background-position:center;">
-                            {% include('header.html') %}
-                        </td>
-                    </tr>
-<!--=================================news feed section =====================================================-->
-                    <tr>
-                        <td>
-                            <table width="100%"  cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <!--first table-->
-                                    <td>
-                                        <table width="300px" cellpadding="0" cellspacing="0" border="1" style="border-color:bisque;">
-                                            <tr>
-                                                <td class="home-news-brand">
-                                                    News Feed
-                                                    <img src="{{url_for('static',filename='img/new.gif')}}" height="50px">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td >
-                                                    <table>
-                                                        <tr>
-                                                            <td>
-                                                                <marquee direction="down" behavior="alternate" onmouseover="this.stop();"
-                                                                        onmouseout="this.start(); " scrollamount="3"  height="625" >
-                                                                    {% for y in yt %}
-                                                                        <a  href="{{url_for('log')}}" >
-                                                                            <div class="home-mark_news">
-                                                                                <b>{{y[0]}}--> {{y[1]}}</b> : {{y[2]}}<br><br>
-                                                                            </div>
-                                                                        </a>
-                                                                    {% endfor %}
-                                                                </marquee>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <!--second table-->
-                                    <td>
-                                        <table   cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td class="home-info_branding" style="color:black;font-weight:100;">
-                                                    Looking For A Digital Future.
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <center>
-                                                        <img src="{{url_for('static',filename='img/digital.jpg')}}" width="650" class="home-p-1">
-                                                    </center>
-                                                </td>
-                                            </tr>
-                                            <tr >
-                                                <td>
-                                                    <p class="home-p-5">
-                                                        Digital technology is taking over the world as more and more businesses are
-                                                        undergoing digital transformation to build the strong brand presence. Digitize
-                                                        Future is a trusted partner for our customers to take them through the Digital
-                                                        Transformation. Digitize Future, which is founded in 2018, consists of
-                                                        talented team of individuals who has more than 11 years of experience with
-                                                        a rich and varied expertise in all the latest software technologies, working
-                                                        together towards a unified mission of delivering quality solutions to our
-                                                        customers. Be it bespoke software or web application or mobile application,
-                                                        Digitize Future is a one-stop service provider for all the customer's needs.
-                                                        We always strive towards providing excellent service to improve overall
-                                                        customer satisfaction and experience. We consider innovation and quality
-                                                        as the two sides of a coin. We provide innovative solutions in best-in-class
-                                                        quality to improve efficiency and to support rapid growth.
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-<!--=====================================NO_PURCHASE_SECTION========================================================-->
-                    <tr>
-                        <td>
-                            <table width="100%" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <table width="100%"  class="home-purchase" cellspacing="0" cellpadding="0">
-                                                <tr>
-                                                    <td>
-                                                        <img  src="{{url_for('static',filename='img/price.png')}}" height="300" width="300"/>
-                                                    </td>
-                                                    <td class="home-purchase-row">
-                                                        <p class="home-purchase-brand">
-                                                            NO PURCHASES REQUIRED !
-                                                        </p>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </center>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-<!--================================================ our services section ===================================-->
-                    <tr>
-                        <td>
-                            <table  width="100%" cellspacing="0" cellpadding="0" class="home-services-bg">
-                                <tr>
-                                    <td class="home-heading home-text-dark" style="font-weight:100;">
-                                        OUR SERVICES
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td>
-                                                    <table cellpadding="0" cellspacing="0">
-                                                        <tr>
-                                                            <td>
-                                                                <table class="home-m-5" style="padding:30px;" >
-                                                                    <tr style="background-color: rgb(226, 205, 146);  ">
-                                                                        <td >
-                                                                            <center>
-                                                                                <h1>JOKES</h1>
-                                                                                <img src="{{url_for('static',filename='img/joke_service.jpg')}}"
-                                                                              class="home-img_service ">
-                                                                            </center>
-                                                                            <p class="home-para home-p-5">
-                                                                                Using this web app you can
-                                                                                 <br>save your
-                                                                                personal credential <br> and even jokes too.
-                                                                            </p>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="{{url_for('log')}}" class="home-btn-danger home-ml-100"  >learn more</a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                            <td>
-                                                                <table class="home-p-5" >
-                                                                    <tr style="background-color:rgb(226, 205, 146);">
-                                                                        <td >
-                                                                            <center>
-                                                                                <h1>CONTACTS</h1>
-                                                                                <img src="{{url_for('static',filename='img/contact_service.png')}}"
-                                                                              class="home-img_service ">
-                                                                            </center>
-                                                                            <p class="home-para home-p-5">
-                                                                                Using this web app you can
-                                                                                 <br>save your
-                                                                                personal contacts <br> and make secure yourself.
-                                                                            </p>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="{{url_for('log')}}" class="home-btn-danger home-ml-100"  >learn more</a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                            <td>
-                                                                <table class="home-p-5" >
-                                                                    <tr style="background-color:rgb(226, 205, 146);">
-                                                                        <td >
-                                                                            <center>
-                                                                                <h1>NOTES</h1>
-                                                                                <img src="{{url_for('static',filename='img/j6.jpg')}}"
-                                                                              class="home-img_service ">
-                                                                            </center>
-                                                                            <p class="home-para home-p-5">
-                                                                                Using this web app you can
-                                                                                 <br>save your
-                                                                                personal notes <br> and even notes too
-                                                                            </p>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="{{url_for('log')}}" class="home-btn-danger home-ml-100"  >learn more</a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-<!--================================= admin info section =====================================================-->
-                    <tr>
-                        <td>
-                            <table cellspacing="0"  class="home-tables home-admin-info" >
-                                <tr>
-                                    <td>
-                                        <table cellspacing="0" cellpadding="0" >
-                                            <tr>
-                                                <td class="home-info_branding" >
-                                                    WEBSITE Administrator
-                                                </td>
-                                            </tr>
-                                            <tr class="home-admin_name" style="font-weight:100;">
-                                                <td>
-                                                    <a href="#">
-                                                        Mr. ASHUTOSH PRASAD
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td>
-                                                    <a href="https://www.facebook.com/ashutosh.prasad.754365">
-                                                        <img src="{{url_for('static',filename='img/admin.jpg')}}" class="home-info_img"  />
-                                                    </a>
-                                                </td>
-                                            </tr>
 
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            {% include('footer.html') %}
-                        </td>
-                    </tr>
-<!--================================ footer section =====================================================-->
-                </table>
-            </form>
-        {% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+</head>
+
+<body>
+    {% block body %}
+    <form method="post" action="/home">
+        <div>{% include('header.html') %}</div>
+        <section>
+            <!--hero section-->
+            <div class="hero-section">
+                <img src="{{url_for('static',filename='img/hero-image.jpg')}}">
+                <div class="hero-tags">
+                    <h1>
+                        Looking For A Digital Diary.
+                    </h1>
+                    <p>
+                        Digital technology is taking over the world as more and more businesses are
+                        undergoing digital transformation to build the strong brand presence. Digitize
+                        Future is a trusted partner for our customers to take them through the Digital
+                        Transformation.
+                    </p>
+                    <a href="{{url_for('log')}}">know more</a>
+                </div>
+            </div>
+        </section>
+        <!-- news section and purchaes section -->
+        <section class="news-purchase">
+            <div class="news">
+                <h1>News</h1>
+                <div class="marquee">
+                    <marquee direction="right" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start(); "
+                    scrollamount="10" height="40" width="100%">
+                    <div>
+                        {% for y in yt %}
+                        <span>
+                            <a href="{{url_for('log')}}">
+                                <span><b>   {{y[0]}}-</b> </span><span>{{y[1]}}</span>
+                                <small>{{y[2]}}</small>
+                            </a>
+                        </span>
+                        {% endfor %}
+                    </div>
+                </marquee>
+                </div>
+            </div>
+        </section>
+        <section>
+             <div class="purchase">
+                 <h1>NO PURCHASES REQUIRED !</h1>
+                 <img src="{{url_for('static',filename='img/no-money.jpg')}}" />
+            </div>
+        </section>
+        <!-- services -->
+        <section class="service">
+            <h1 class="service-head">Our services</h1>
+            <div class="service-items">
+                <div class="jokes">
+                    <h1>jokes</h1>
+                    <img src="{{url_for('static',filename='img/jokes.jpg')}}" />
+                    <a href="{{url_for('log')}}">know more</a>
+                </div>
+                <div class="notes">
+                    <h1>notes</h1>
+                    <img src="{{url_for('static',filename='img/notes.jpg')}}" />
+                    <a href="{{url_for('log')}}">know more</a>
+                </div>
+                <div class="contact">
+                    <h1>contact</h1>
+                    <img src="{{url_for('static',filename='img/contacts.jpg')}}" />
+                    <a href="{{url_for('log')}}">know more</a>
+                </div>
+            </div>
+        </section>
+        <section class="team">
+            <h1>Our Team</h1>
+            <div class="members">
+                <div>
+                    <img src="{{url_for('static',filename='img/team.jpg')}}" />
+                    <h1>Pranay Shukla</h1>
+                    <small>Backend Developer</small>
+                </div>
+                <div>
+                    <img src="{{url_for('static',filename='img/team.jpg')}}" />
+                    <h1>Vikas Mishra</h1>
+                    <small>Front-end designer
+                    <br>, resource handler.
+                    </small>
+                </div>
+                <div>
+                    <img src="{{url_for('static',filename='img/team.jpg')}}" />
+                    <h1>Ashutosh Prasad</h1>
+                    <small>Interactive Front-end Developer</small>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            {% include('footer.html') %}
+        </footer>
+    </form>
+    {% endblock %}
+</body>
+
 </html>

@@ -5,117 +5,68 @@
         <title>Jokes</title>
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
         <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
-        <style>
-           ::placeholder {color: lightslategray;font-size:12pt;}
-            .tr_1:hover{
-            background:#5accc1;
-            transition:all 0.4s
-            }
-
-        </style>
     <body>
         {% block body %}
             <form method="post" action="/jokes" >
-                <table width="100%" cellpadding="0" cellspacing="0" class="jokes-backgrnd">
-                    <tr>
-                        <td>{% include('userheader.html') %}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellspacing="0" cellpadding="0" style="margin-top:80px;padding:100px;" >
-                                <tr>
-                                    <td  class="contact-us-head" style="color:white;">ADD JOKES
-                                        <p class="joke-sub-brand">
-                                            wanna save your jokes just fill entries and save
-                                            your funny joke...
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <table cellpadding="10" cellspacing="0">
-                                            <tr>
-                                                <td><input type="text" placeholder="USERNAME" name="t1" class="contact-us-box" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="text" placeholder="JOKE SHARED BY" name="t2" class="contact-us-box" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td><textarea name="t3" placeholder="JOKE DETAILS" rows="10" cols="40" class="contact-us-box"></textarea></td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="date" placeholder="DETAILS" name="t4" class="contact-us-box"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="time" placeholder="TIME" name="t5" class="contact-us-box"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="submit" name="save" value="SAVE"  class="register-btn joke-btns"/>
-                                                    <input type="submit" name="up" value="UPDATE"  class="register-btn joke-btns"/>
-                                                    <input type="submit" name="del" value="DELETE" class="register-btn joke-btns"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table cellspacing="0" cellpadding="0" width="100%"  style="text-align:center;padding:100px">
-                                <tr>
-                                    <td>
-                                        <table  cellspacing="20"  width="100%" cellpadding="0">
-                                            <tr>
-                                                <td>
-                                                    <input type="text" name="u1"  class="contact-us-box" placeholder="USERNAME"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="submit" name="show" value="SHOW" class="contact-us-send-btn" />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td class="contact-us-head" style="color:white">
-                                        SEE JOKES
-                                        <p class="joke-sub-brand">
-                                            Retrieve your jokes using your username..
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellspacing="0" cellpadding="20" border="1" style="background:white" >
-                                <tr>
-                                    <th>Joke Id</th>
-                                    <th>Username</th>
-                                    <th>Refered By</th>
-                                    <th>Joke</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                </tr>
-                                {% for l in po %}
-                                <tr class="tr_1">
-                                    <td>{{l[0]}}</td>
-                                    <td>{{l[1]}}</td>
-                                    <td>{{l[2]}}</td>
-                                    <td>{{l[3]}}</td>
-                                    <td>{{l[4]}}</td>
-                                    <td>{{l[5]}}</td>
-                                </tr>
+                <div>{% include('userheader.html') %}</div>
+                <div class="usernotes">
+                    <div>
+                        <input type="text" placeholder="username" name="t1">
+                        <input type="text" placeholder="joke shared by" name="t2">
+                        <input type="text" placeholder="details" name="t3">
+                        <input type="date" name="t4">
+                        <input type="time" name="t5">
+                        <div class="userjokes">
+                            <input type="submit"  name="save"  value="save">
+                            <input type="submit"  name="up"  value="update">
+                            <input type="submit"  name="del" value="delete">
+                        </div>
+                    </div>
+                    <div>
+                        <h1>Add jokes</h1>
+                        <p>wanna save your jokes just fill entries and save your funny joke...</p>
+                    </div>
+                </div>
+                <div>
+                    <table width="100%" cellpadding="20" cellspacing="10" class="notes-show">
+                        <tr>
+                            <td style="border-right:1px solid brown;">Retrieve your jokes using your username..</td>
+                            <td class="usershow">
+                                <input type="text" name="u1" placeholder="USERNAME"/>
+                                <input type="submit" name="show" value="show"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellspacing="0" cellpadding="20" border="1" style="background:white" >
+                                    <tr>
+                                        <th>Joke Id</th>
+                                        <th>Username</th>
+                                        <th>Refered By</th>
+                                        <th>Joke</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                    </tr>
+                                    {% for l in po %}
+                                    <tr class="tr_1">
+                                        <td>{{l[0]}}</td>
+                                        <td>{{l[1]}}</td>
+                                        <td>{{l[2]}}</td>
+                                        <td>{{l[3]}}</td>
+                                        <td>{{l[4]}}</td>
+                                        <td>{{l[5]}}</td>
+                                    </tr>
                                 {% endfor %}
                             </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{% include('footer.html') %}</td>
-                    </tr>
-                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>{% include('userfooter.html') %}</div>
             </form>
         {% endblock %}
     </body>

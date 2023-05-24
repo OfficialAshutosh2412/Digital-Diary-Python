@@ -9,7 +9,7 @@ app.config['MYSQL_DATABASE_DB'] = 'digitaldiary'
 app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
-app.config['UPLOAD_PATH'] = "C:\\Users\\Ashutosh Prasad\\PycharmProjects\\DigitalDiary\\static\\upload_images"
+app.config['UPLOAD_PATH'] = "D:\\Projects\\PROJECT\\DIgital Diary Project\\DigitalDiary\\static\\upload_images"
 
 # ---------------- # for home page -------------------------------------------------------------------
 

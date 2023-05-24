@@ -7,64 +7,35 @@
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
         <style>
             ::placeholder {color: lightslategray;font-size:12pt;}
+            body{
+                background:#edeef0;
+            }
         </style>
     </head>
     <body>
     {% block body %}
         <form method="post" action="/login">
-            <table cellspacing="0" cellpadding="0">
-                <tr>
-                    <td style="background-image:url('static/img/login.jpg');
-                                background-repeat:no-repeat;background-attachment:fixed;background-position:center;">
-                        {% include('header.html') %}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table width="100%" cellspacing="0" cellpadding="0" class="contact-us-tab-1" style="margin-top:0px">
-                            <tr>
-                                <td class="contact-us-para">
-                                    <label class="contact-us-head">
-                                        LOGIN<br>
-                                    </label>
-                                    Got Accessibilty ?We'd love to gave you access.<br>
-                                    Make account and enjoy the services.
-                                </td>
-                                <td>
-                                    <center>
-                                        <table cellspacing="40" cellpadding="0" width="100%" class="login-bg">
-                                            <tr>
-                                                <td>
-                                                    <input type="text" name="t1" placeholder="USERNAME*" class="contact-us-box" />
-                                                </td>
-                                            </tr>
-                                                <td>
-                                                    <input type="password" name="t2" placeholder="PASSWORD *" class="contact-us-box" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="submit" value="login" name="lo" class="contact-us-send-btn"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="{{url_for('reg')}}" class="login-sub-brand">
-                                                        Create Account. Click Here !
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </center>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>{% include('footer.html') %}</td>
-                </tr>
-            </table>
+            <div>{% include('header.html') %}</div>
+            <div class="loginContainer">
+                <div class="loginForm">
+                    <h1>Login</h1>
+                    <div>
+                        <label>username</label>
+                        <input type="text" name="t1">
+                    </div>
+                    <div>
+                        <label>password</label>
+                        <input type="text" name="t2">
+                    </div>
+                    <input type="submit" value="login" name="lo">
+                </div>
+                <div class="loginImg">
+                    <img src="{{url_for('static',filename='img/loginimg.jpg')}}">
+                </div>
+            </div>
+
+            <div>{% include('footer.html') %}</div>
+
         </form>
     {% endblock %}
     </body>
