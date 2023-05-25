@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
         <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+        <script type="text/javascript" src="{{url_for('static', filename = 'js/script.js')}}"></script>
         <style>
             ::placeholder {color: lightslategray;font-size:12pt;}
             body{
@@ -14,20 +15,20 @@
     </head>
     <body>
     {% block body %}
-        <form method="post" action="/login">
+        <form method="post" action="/login" >
             <div>{% include('header.html') %}</div>
             <div class="loginContainer">
                 <div class="loginForm">
                     <h1>Login</h1>
                     <div>
                         <label>username</label>
-                        <input type="text" name="t1">
+                        <input type="text" name="t1" id="username">
                     </div>
                     <div>
                         <label>password</label>
-                        <input type="text" name="t2">
+                        <input type="text" name="t2" id="password">
                     </div>
-                    <input type="submit" value="login" name="lo">
+                    <input type="submit" value="login" name="lo" onclick="return validLogin()">
                 </div>
                 <div class="loginImg">
                     <img src="{{url_for('static',filename='img/loginimg.jpg')}}">

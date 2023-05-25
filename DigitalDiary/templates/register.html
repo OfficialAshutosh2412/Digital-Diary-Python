@@ -5,6 +5,7 @@
         <title>Registeration</title>
         <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
         <link rel="shortcut icon" href="{{url_for('static',filename='fav_icon/icon.ico')}}"/>
+        <script type="text/javascript" src="{{url_for('static', filename = 'js/script.js')}}"></script>
         <style>
             body{
                 background:#edeef0;
@@ -20,27 +21,27 @@
                 <div class="flex">
                     <div>
                         <label>username</label>
-                        <input type="text" name="t1">
+                        <input type="text" name="t1" id="username">
                     </div>
                     <div>
                         <label>email</label>
-                        <input type="email" name="t5">
+                        <input type="email" name="t5" id="email">
                     </div>
                 </div>
                 <div class="flex">
                     <div>
                         <label for="">password</label>
-                        <input type="text" name="t2" maxlength="12">
+                        <input type="text" name="t2" maxlength="12" id="password">
                     </div>
                     <div>
                         <label for="">confirm password</label>
-                        <input type="text" name="t3" maxlength="12">
+                        <input type="text" name="t3" maxlength="12" id="confirmPassword">
                     </div>
                 </div>
                 <div class="flex">
                     <div>
                         <label for="">gender</label>
-                        <select name="t4">select
+                        <select name="t4" id="gender">select
                             <option>male</option>
                             <option>female</option>
                             <option>transgender</option>
@@ -48,13 +49,13 @@
                     </div>
                     <div>
                         <label for="">pincode</label>
-                        <input type="text" name="t6" maxlength="6">
+                        <input type="text" name="t6" maxlength="6" id="pincode">
                     </div>
                 </div>
                 <div class="flex">
                     <div>
                         <label for="">marriage status</label>
-                        <select name="t7" >
+                        <select name="t7" id="mstatus">
                             select
                             <option value="">married</option>
                             <option value="">unmaried</option>
@@ -64,7 +65,7 @@
                     </div>
                     <div>
                         <label for="">living status</label>
-                        <select name="t8">
+                        <select name="t8" id="lstatus">
                             select
                             <option value="">high class</option>
                             <option value="">middle class</option>
@@ -77,25 +78,25 @@
                 <div class="flex">
                     <div>
                         <label for="">date of birth</label>
-                        <input type="date" name="t9">
+                        <input type="date" name="t9" id="dob">
                     </div>
                     <div>
                         <label for="">timeline</label>
-                        <input type="time" name="t10">
+                        <input type="time" name="t10" id="time">
                     </div>
                     <div>
                         <label for="">address</label>
-                        <textarea name="t11" id="" cols="30" rows="10"></textarea>
+                        <textarea name="t11" id="address" cols="30" rows="10"></textarea>
                     </div>
                 </div>
                 <div class="flex">
                     <div>
                         <label for="">profile picture</label>
-                        <input type="file" name="file_data">
+                        <input type="file" name="file_data" id="profile">
                     </div>
                 </div>
                     <div class="flex">
-                        <input type="submit" value="register" name="reg">
+                        <input type="submit" value="register" name="reg" onclick="return validSignup()">
                         <button class="button" >
                             <a href="{{url_for('log')}}" >
                                 Already have an Account
